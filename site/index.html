@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DECA Creator Kit · hooks, shot lists and a payout calculator</title>
+<meta name="description" content="Pick a DECA app, get hooks, a shot list and captions for TikTok, Reels or Shorts. Then work out what a campaign pays per post.">
+<meta name="theme-color" content="#EFF2FB">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DECA Creator Kit">
+<meta property="og:description" content="Hooks, shot lists and captions for every DECA app, plus a payout calculator for DECA campaigns.">
+<meta property="og:image" content="https://deca-creator-kit.sites.tab.bot/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://deca-creator-kit.sites.tab.bot/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DECA Creator Kit">
+<meta name="twitter:description" content="Hooks, shot lists and captions for every DECA app, plus a payout calculator for DECA campaigns.">
+<meta name="twitter:image" content="https://deca-creator-kit.sites.tab.bot/og.png">
+<meta name="twitter:creator" content="@iamlogtun">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Sora:wght@800&display=swap">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#kit" aria-label="DECA Creator Kit home"><span>deca</span><small>creator kit</small></a>
+    <a class="btn fill sm" href="https://app.decalabs.ai/join/creator" target="_blank" rel="noopener">Join as a creator</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="k">For DECA creators</p>
+    <h1>Film a better DECA video in ten minutes.</h1>
+    <p class="lead">Pick an app and get hooks, a shot list and captions for your platform. Then see what a campaign pays per post.</p>
+  </section>
+
+  <nav class="tabs wrap" role="tablist" aria-label="Tools">
+    <button role="tab" id="tab-kit" aria-controls="panel-kit" aria-selected="true" data-tab="kit">Video Kit</button>
+    <button role="tab" id="tab-payout" aria-controls="panel-payout" aria-selected="false" data-tab="payout" tabindex="-1">Payout Calculator</button>
+  </nav>
+
+  <section id="panel-kit" class="panel wrap" role="tabpanel" aria-labelledby="tab-kit">
+    <h2 class="h2">1. Pick an app</h2>
+    <div class="apps" id="apps" role="radiogroup" aria-label="DECA apps"></div>
+
+    <div id="kit" class="kit" hidden>
+      <div class="kit-head">
+        <div>
+          <p class="k" id="kit-kind"></p>
+          <h2 class="d2" id="kit-name"></h2>
+          <p class="muted" id="kit-line"></p>
+          <p class="links" id="kit-links"></p>
+        </div>
+      </div>
+
+      <div class="seg" role="radiogroup" aria-label="Platform" id="platforms">
+        <button role="radio" aria-checked="true" data-p="tiktok">TikTok</button>
+        <button role="radio" aria-checked="false" data-p="reels">Reels</button>
+        <button role="radio" aria-checked="false" data-p="shorts">Shorts</button>
+      </div>
+
+      <div class="card tip">
+        <h3>Format for <span id="p-name">TikTok</span></h3>
+        <p class="strong" id="p-length"></p>
+        <ul id="p-tips"></ul>
+      </div>
+
+      <div class="card">
+        <h3>5 hooks <span class="muted sm">for the first 2 seconds</span></h3>
+        <ol class="copylist" id="hooks"></ol>
+      </div>
+
+      <div class="card">
+        <h3>Shot list <span class="muted sm">phone only</span></h3>
+        <ol class="shots" id="shots"></ol>
+      </div>
+
+      <div class="card">
+        <h3>Captions</h3>
+        <ol class="copylist" id="captions"></ol>
+        <p class="tags" id="tags"></p>
+      </div>
+
+      <div class="card">
+        <h3>What to show</h3>
+        <ul class="checks" id="show"></ul>
+      </div>
+
+      <p class="note">If a DECA campaign is open for this app, read DECA's note about what is worth filming first. This kit only uses what DECA's site says each app does: where it says "show how you", film what you actually did.</p>
+
+      <a class="btn fill wide" href="https://app.decalabs.ai/join/creator" target="_blank" rel="noopener">Join DECA's creator program <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section id="panel-payout" class="panel wrap" role="tabpanel" aria-labelledby="tab-payout" hidden>
+    <h2 class="h2">What does a campaign pay per post?</h2>
+    <p class="muted">DECA's rule, as written on its creators page: "When the campaign closes its pool is split equally across accepted posts, never less than the floor, and sent the Monday after."</p>
+
+    <form class="card form" id="calc" novalidate>
+      <label>Campaign pool ($)
+        <input inputmode="decimal" name="pool" id="pool" value="3000" autocomplete="off">
+      </label>
+      <label>Floor per post ($)
+        <input inputmode="decimal" name="floor" id="floor" value="50" autocomplete="off">
+      </label>
+      <label>All accepted posts
+        <input inputmode="numeric" name="posts" id="posts" value="40" autocomplete="off">
+      </label>
+      <label>My accepted posts
+        <input inputmode="numeric" name="mine" id="mine" value="2" autocomplete="off">
+      </label>
+      <label class="full">Campaign close date <span class="muted sm">(optional, for the pay day)</span>
+        <input type="date" name="close" id="close">
+      </label>
+    </form>
+
+    <div class="result card" id="result" aria-live="polite">
+      <div class="big"><span class="muted sm">Each accepted post earns</span><b id="r-per">$75</b></div>
+      <div class="big"><span class="muted sm">You earn</span><b id="r-mine">$150</b></div>
+      <p id="r-explain"></p>
+      <p id="r-when" class="when"></p>
+      <ul class="errs" id="r-errs" hidden></ul>
+    </div>
+
+    <p class="note">The starting numbers are made-up examples, not a real campaign. Amounts are rounded to the cent; DECA doesn't say how it rounds. If the floor times the posts is more than the pool, DECA's rule as written still pays the floor on every accepted post.</p>
+    <a class="btn fill wide" href="https://app.decalabs.ai/join/creator" target="_blank" rel="noopener">Join DECA's creator program <span aria-hidden="true">&rarr;</span></a>
+  </section>
+</main>
+
+<footer class="foot wrap">
+  <p>by <a href="https://x.com/iamlogtun" target="_blank" rel="noopener">@iamlogtun</a> · Not affiliated with DECA</p>
+</footer>
+
+<script src="data.js?v=2"></script>
+<script src="calc.js?v=2"></script>
+<script src="app.js?v=2"></script>
+</body>
+</html>
